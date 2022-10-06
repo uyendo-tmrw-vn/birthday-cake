@@ -3,8 +3,207 @@
 @tailwind utilities;
 
 body {
-    @apply bg-[grey];
     .test {
         @apply border;
+    }
+}
+.wrap {
+    width: 80vw;
+    height: 60vw;
+    margin: 10rem auto;
+    // background-image: url(https://st.depositphotos.com/1488517/4570/v/600/depositphotos_45707441-stock-illustration-flat-birthday-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+}
+.cake {
+    width: 20em;
+    height: 20em;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 25%;
+}
+.floor {
+    height: 100%;
+    width: 100%;
+    background-color: #ffe197;
+    position: absolute;
+    bottom: 0;
+}
+.cake-null {
+    position: relative;
+    z-index: 2;
+}
+.body {
+    height: 20em;
+    border-radius: 100%/50%;
+    background: #faf9eb;
+    z-index: 2;
+    width: 100%;
+}
+.top {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 8em;
+    border-radius: 50%;
+    background: #deddd0;
+    z-index: 3;
+    filter: brightness(85%);
+}
+.plate {
+    width: 115%;
+    height: 51%;
+    position: absolute;
+    bottom: -7%;
+    left: -8%;
+    z-index: 1;
+    background-color: #ccc;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgb(0 0 0 / 50%);
+}
+
+.config {
+    position: relative;
+    z-index: 1;
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transform: translateX(-3px);
+        z-index: 2;
+        position: relative;
+        .item {
+            width: 75px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9a11e;
+            position: relative;
+            padding: 0 10px;
+            margin-bottom: 3px;
+            box-shadow: 3px 3px 0px #bb7104;
+            border-radius: 0 9px 9px 0;
+            cursor: pointer;
+            &::before {
+                position: absolute;
+                content: "";
+                width: 50px;
+                height: 100%;
+            }
+            &.active {
+                width: 90px;
+            }
+        }
+    }
+    &__hidden {
+        // transition: all 0.3s ease-in-out;
+        position: absolute;
+        height: calc(100% - 3px);
+        left: 65px;
+        background: #efc869;
+        box-shadow: 3px 3px 0px #bb7104;
+        border-radius: 0 9px 9px 0;
+        z-index: 1;
+        width: 0;
+        overflow: hidden;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            // background-color: #f5f5f5;
+        }
+
+        &::-webkit-scrollbar {
+            width: 12px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: gainsboro;
+        }
+        img {
+            margin: 15px auto;
+            max-width: 80%;
+            cursor: pointer;
+            width: 100%;
+        }
+        &.active {
+            width: 150px;
+            overflow: auto;
+            padding-left: 25px;
+        }
+    }
+    &__colors {
+        &.active {
+            width: 120%;
+        }
+        .color {
+            width: 50px;
+            height: 50px;
+            display: block;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 20px auto;
+            box-shadow: 1px 2px 0 black;
+        }
+    }
+    &__cover {
+        img {
+            margin: 25px auto;
+        }
+    }
+    &__star,
+    &__flower,
+    &__candle {
+        flex-direction: row;
+        flex-wrap: wrap;
+        img {
+            width: 35%;
+        }
+    }
+    &__number {
+        flex-direction: row;
+        flex-wrap: wrap;
+        .number {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 4em;
+            width: 50%;
+            text-align: center;
+            color: #fff;
+            text-shadow: #000 2px 1px 0px;
+        }
+    }
+    &__aphabet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        &.active {
+            width: 175px;
+        }
+        .alpha {
+            text-transform: uppercase;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 2em;
+            width: 30%;
+            text-align: center;
+            color: #fff;
+            text-shadow: #000 2px 1px 0px;
+        }
     }
 }
